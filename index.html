@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Did You Know?</h1>
+        <p id="fact"></p>
+        <button id="nextFact">Next Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "Plants convert sunlight into energy through a process called photosynthesis, which takes place in the chloroplasts of their cells.",
+            "There are over 390,000 known plant species on Earth, ranging from tiny mosses to towering redwoods.",
+            "The root system of a plant is crucial for anchoring it to the ground and absorbing water and nutrients from the soil.",
+            "Plants grow by producing new cells at their tips (apical meristems) and can continue to grow throughout their lives.",
+            "Plants can reproduce sexually (through seeds) and asexually (through methods like cuttings, runners, or tubers).",
+            "Many plants have medicinal properties and have been used in traditional medicine for centuries.",
+            "Some plants can communicate with each other through chemical signals.",
+            "Certain plants, like the Venus flytrap and pitcher plants, have adapted to capture and digest insects.",
+            "Some plants can live for thousands of years, like the Bristlecone pine tree.",
+            "Plants play a vital role in regulating the Earth's climate by absorbing carbon dioxide and releasing oxygen."
+        ];
+
+        let currentFactIndex = 0;
+
+        function displayFact() {
+            document.getElementById('fact').innerText = facts[currentFactIndex];
+        }
+
+        document.getElementById('nextFact').addEventListener('click', () => {
+            currentFactIndex = (currentFactIndex + 1) % facts.length;
+            displayFact();
+        });
+
+        // Display the first fact on page load
+        displayFact();
+    </script>
+</body>
+</html>
